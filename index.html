@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>my little space ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Gowun+Dodum&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">my little<br><span>space ♡</span></div>
+  <nav><button class="nav active" data-page="calendar">☼ <span>Calendar</span></button><button class="nav" data-page="wishlist">♡ <span>Wishlist</span></button></nav>
+  <div class="side-flower"><img src="assets/flower.jpg"></div>
+  <p class="quote">collect little things<br>that make you happy.</p>
+</aside>
+
+<div id="appShell">
+<div class="account-bar"><span id="accountEmail"></span><span id="syncStatus">☁︎ 연결 준비 중</span><button id="logoutBtn">로그아웃</button></div>
+<main>
+<section id="calendar" class="page active">
+<header class="head"><div><p class="eyebrow">MY DAYS</p><h1>Calendar <i>♡</i></h1></div><button class="primary" id="openEvent">＋ 일정 추가</button></header>
+<div class="calendar-layout">
+  <div class="calendar-card">
+    <div class="month-bar"><button id="prev">‹</button><h2 id="monthTitle"></h2><button id="next">›</button></div>
+    <div class="weekdays"><span>sun</span><span>mon</span><span>tue</span><span>wed</span><span>thu</span><span>fri</span><span>sat</span></div>
+    <div class="calendar-grid" id="grid"></div>
+  </div>
+  <div class="day-card"><div class="tiny">✿</div><p class="eyebrow">SELECTED DAY</p><h2 id="selectedDate"></h2><div id="events"></div><button class="soft" id="openEvent2">＋ new little plan</button></div>
+</div>
+<div class="banner"><img src="assets/collage.jpg"><div><p class="eyebrow">A LITTLE REMINDER</p><h2>Make room for the<br>things you love.</h2></div><b>✾</b></div>
+</section>
+
+<section id="wishlist" class="page">
+<header class="head"><div><p class="eyebrow">THINGS I LOVE</p><h1>Wishlist <i>♡</i></h1></div><button class="primary" id="openWish">＋ 위시 추가</button></header>
+<div class="wish-tabs"><button class="tab active" data-status="wish">wish</button><button class="tab" data-status="bought">bought</button><input id="search" placeholder="search my little wishes..."></div>
+<div id="wishGrid" class="wish-grid"></div>
+</section>
+</main>
+</div>
+
+<div id="authOverlay" class="auth-overlay">
+  <div class="auth-card">
+    <p class="eyebrow">MY LITTLE SPACE</p><h2>나만의 공간에 들어가기 ♡</h2>
+    <p class="hint">아이폰과 아이패드에서 같은 계정을 사용하면 일정과 위시리스트가 자동으로 동기화돼.</p>
+    <form id="loginForm"><input id="authEmail" type="email" required placeholder="이메일"><input id="authPassword" type="password" minlength="6" required placeholder="비밀번호"><button class="primary">로그인</button></form>
+    <button id="signupBtn" class="soft">처음이면 회원가입</button><p id="authMessage" class="auth-message"></p>
+  </div>
+</div>
+
+<dialog id="eventDialog"><form id="eventForm" class="modal">
+<button type="button" class="close" data-close="eventDialog">×</button><p class="eyebrow">QUICK PLAN</p><h2>일정을 한 줄로 적어줘 ♡</h2>
+<p class="hint">예) 9월 12일 오후 3시 영어 학원<br>예) 내일 7시 친구 만나기<br>예) 금요일 10:30 수학 수행평가</p>
+<input id="quickEvent" required placeholder="날짜 + 시간 + 일정">
+<button class="primary">캘린더에 넣기</button></form></dialog>
+
+<dialog id="wishDialog"><form id="wishForm" class="modal">
+<button type="button" class="close" data-close="wishDialog">×</button><p class="eyebrow">NEW WISH</p><h2>상품 링크만 붙여넣어줘 ♡</h2>
+<p class="hint">상품 페이지 주소를 넣으면 가능한 경우 상품명·사진·가격을 자동으로 가져와.</p>
+<input id="wishUrl" type="url" required placeholder="https://...">
+<div id="preview" class="preview hidden"><img id="previewImg"><div><b id="previewTitle"></b><p id="previewPrice"></p></div></div>
+<select id="wishStatus"><option value="wish">wish</option><option value="bought">bought</option></select>
+<button type="button" class="soft" id="previewBtn">자동으로 정보 가져오기</button>
+<button class="primary">저장하기</button></form></dialog>
+<script type="module" src="script.js"></script>
+</body></html>
